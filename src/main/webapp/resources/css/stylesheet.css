@@ -1,0 +1,21 @@
+h1{
+    text-align: center;
+    color: white;
+    opacity: 90%;
+    ;
+}
+.text-center{
+    opacity: 90%;;
+}
+
+p{
+    text-align: center;
+    color: white;
+    opacity: 90%;
+    ;
+}
+#bt-voltar{
+    color: gray;
+    opacity: 90%;
+    font-size: 2em;
+}
