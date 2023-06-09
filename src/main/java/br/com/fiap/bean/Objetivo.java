@@ -1,26 +1,27 @@
 package br.com.fiap.bean;
 
 import java.sql.Date;
+import java.util.Calendar;
 
 public class Objetivo {
 
 	private int idObjetivo;
-	private UsuarioGrupo grupo = new UsuarioGrupo();
+	private int idGrupo = new UsuarioGrupo().getIdGrupo();
 	private String dsObjetivo;
 	private double vrObjetivo;
 	private Date dtInicio;
 	private Date dtFim;
-	private Date dtInclusao;
-	private boolean status;
+	private Calendar dtInclusao;
+	private int status;
 
 	public Objetivo() {
 	}
 
-	public Objetivo(int idObjetivo, UsuarioGrupo grupo, String dsObjetivo, double vrObjetivo, Date dtInicio, Date dtFim,
-			Date dtInclusao, boolean status) {
+	public Objetivo(int idObjetivo, int grupo, String dsObjetivo, double vrObjetivo, Date dtInicio, Date dtFim,
+			Calendar dtInclusao, int status) {
 		super();
 		this.idObjetivo = idObjetivo;
-		this.grupo = grupo;
+		this.idGrupo = grupo;
 		this.dsObjetivo = dsObjetivo;
 		this.vrObjetivo = vrObjetivo;
 		this.dtInicio = dtInicio;
@@ -29,20 +30,22 @@ public class Objetivo {
 		this.status = status;
 	}
 
+	
+	
+	public int getIdGrupo() {
+		return idGrupo;
+	}
+
+	public void setIdGrupo(int grupo) {
+		this.idGrupo = grupo;
+	}
+
 	public int getIdObjetivo() {
 		return idObjetivo;
 	}
 
 	public void setIdObjetivo(int idObjetivo) {
 		this.idObjetivo = idObjetivo;
-	}
-
-	public UsuarioGrupo getGrupo() {
-		return grupo;
-	}
-
-	public void setGrupo(UsuarioGrupo grupo) {
-		this.grupo = grupo;
 	}
 
 	public String getDsObjetivo() {
@@ -77,19 +80,19 @@ public class Objetivo {
 		this.dtFim = dtFim;
 	}
 
-	public Date getDtInclusao() {
+	public Calendar getDtInclusao() {
 		return dtInclusao;
 	}
 
-	public void setDtInclusao(Date dtInclusao) {
+	public void setDtInclusao(Calendar dtInclusao) {
 		this.dtInclusao = dtInclusao;
 	}
 
-	public boolean isStatus() {
+	public int isStatus() {
 		return status;
 	}
 
-	public void setStatus(boolean status) {
+	public void setStatus(int status) {
 		this.status = status;
 	}
 

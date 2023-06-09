@@ -1,10 +1,14 @@
 package br.com.fiap.main;
 
 
+
+import java.sql.Date;
 import java.util.Calendar;
 
-import br.com.fiap.bean.Usuario;
-import br.com.fiap.dao.UsuarioDAO;
+import br.com.fiap.bean.Objetivo;
+
+import br.com.fiap.dao.ObjetivoDAO;
+
 import br.com.fiap.exception.DBException;
 import br.com.fiap.factory.DAOFactory;
 
@@ -12,22 +16,25 @@ public class Teste {
 
 	public static void main(String[] args) {
 		
-		UsuarioDAO dao = DAOFactory.getUsuarioDAO();
+		ObjetivoDAO dao = DAOFactory.getObjetivoDAO();
 
 		try {
 			
-			Usuario usuario = new Usuario();
+			Objetivo objetivo = new Objetivo();
 			
-			usuario.setIdUsuario(3);
-			usuario.setUsuarioGrupo(1);
-			usuario.setNmUsuario("keller");
-			usuario.setSenha("12345");
-			usuario.setEmail("kellertiago@hotmail.com");
-			usuario.setDtInclusao(Calendar.getInstance());
+			objetivo.setIdObjetivo(1);
+			objetivo.setIdGrupo(1);
+			objetivo.setDsObjetivo("First Objetivo");
+		
+			Date data = Date.valueOf("2023-05-01");
 			
-			usuario.setStatus(false);
 			
-			dao.create(usuario);
+			objetivo.setDtInicio(data);
+			objetivo.setDtFim(data);
+			objetivo.setDtInclusao(Calendar.getInstance());
+			objetivo.setStatus(1);
+			
+			dao.create(objetivo);
 			System.out.println("Produto cadastrado.");
 		} catch (DBException e) {
 			e.printStackTrace();     
