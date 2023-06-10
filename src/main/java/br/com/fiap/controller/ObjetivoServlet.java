@@ -31,24 +31,22 @@ public class ObjetivoServlet extends HttpServlet {
 	}
 
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		
-		listar(request, response);
-	
-	}
-
-
-	private void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Objetivo> lista = dao.readAll();
-		request.setAttribute("objetivos", lista);
-		request.getRequestDispatcher("lista-objetivo.jsp").forward(request, response);
-	}
-
-
+    @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		cadastrar(request, response);
+
+		String acao = request.getParameter("acao");
+
+		switch (acao) {
+		case "cadastrar":
+			cadastrar(request, response);
+			break;
+			
+		case "editar":
+			editar(request,response);
+			break;
+		}
 		
 	}
 
@@ -67,7 +65,7 @@ public class ObjetivoServlet extends HttpServlet {
 
  			dao.create(objetivo);
 
- 			request.setAttribute("msg", "Produto cadastrado!");
+ 			request.setAttribute("msg", "Objetivo cadastrado com sucesso!");
  		} catch (DBException db) {
  			db.printStackTrace();
  			request.setAttribute("erro", "Erro ao cadastrar");
@@ -76,6 +74,53 @@ public class ObjetivoServlet extends HttpServlet {
  			request.setAttribute("erro", "Por favor, valide os dados");
  		}
  		request.getRequestDispatcher("cadastro-objetivo.jsp").forward(request, response);
+	}
+	
+    private void editar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try {
+		    int idObjetivo = Integer.parseInt(request.getParameter("codigo"));
+			String dsObjetivo = request.getParameter("nome-objetivo");
+ 			double vrObjetivo = Double.parseDouble(request.getParameter("valor"));
+ 			SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+ 			java.util.Date dataInicio = format.parse(request.getParameter("data-inicio"));
+ 			java.util.Date dataFim = format.parse(request.getParameter("data-fim"));
+
+
+ 			Objetivo objetivo = new Objetivo(idObjetivo, 0, dsObjetivo, vrObjetivo, new java.sql.Date(dataInicio.getTime()), new java.sql.Date(dataFim.getTime()), null, 1);
+ 			dao.update(objetivo);
+ 	        request.setAttribute("msg", "Objetivo atualizado!");
+ 	        
+	    } catch (DBException db) {
+	        db.printStackTrace();
+	        request.setAttribute("erro", "Erro ao atualizar");
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        request.setAttribute("erro", "Por favor, valide os dados");
+	    }
+		listar(request, response);	
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		 String acao = request.getParameter("acao");
+		    
+			switch (acao) {
+			case "listar":
+				listar(request, response);
+				break;
+			
+			case "abrir-alterar":
+				int idobjetivo = Integer.parseInt(request.getParameter("codigo"));
+				Objetivo objetivo = dao.read(idobjetivo);
+				request.setAttribute("objetivo", objetivo);
+				request.getRequestDispatcher("alteracao-objetivo.jsp").forward(request, response);
+			}	
+	}
+
+	private void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<Objetivo> lista = dao.readAll();
+		request.setAttribute("objetivos", lista);
+		request.getRequestDispatcher("lista-objetivo.jsp").forward(request, response);
 	}
 
 }

@@ -26,7 +26,7 @@
 				<!-- Botao drop down -->
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" role="button"
-					data-bs-toggle="dropdown" aria-expanded="false">Cadastros</a>
+					data-bs-toggle="dropdown" aria-expanded="false">Informações</a>
 					<ul class="dropdown-menu">
 						<li><a class="dropdown-item nav-link" href="lista-objetivo.jsp">Objetivo</a></li>
 						<li><hr class="dropdown-divider"></li>
@@ -41,10 +41,10 @@
 					</ul></li>
 			</ul>
 		</div>
-		<form class="d-flex" role="search">
+		<form class="d-flex" role="search" >
 			<input class="form-control me-2" type="search" placeholder="Search"
 				aria-label="Search">
-			<button class="btn btn-outline-warning" type="submit">Search</button>
+			<button class="btn btn-outline-warning" type="submit" >Search</button>
 		</form>
 
 	</div>

@@ -67,19 +67,17 @@ public class OracleObjetivoDAO implements ObjetivoDAO {
 
 			conexao = ConnectionManager.getInstance().getConnection();
 
-			String sql = "UPDATE t_fth_objetivo SET id_grupo = ?, ds_objetivo = ?, vr_objetivo = ?, dt_inicio = ?, dt_fim = ?, dt_inclusao = ?, status = ? WHERE id_objetivo = ?";
+			String sql = "UPDATE t_fth_objetivo SET ds_objetivo = ?, vr_objetivo = ?, dt_inicio = ?, dt_fim = ?, status = ? WHERE id_objetivo = ?";
 
 			stmt = conexao.prepareStatement(sql);
 
-			stmt.setInt(1, 1);
-			stmt.setString(2, objetivo.getDsObjetivo());
-			stmt.setDouble(3, objetivo.getVrObjetivo());
-			stmt.setDate(4, objetivo.getDtInicio());
-			stmt.setDate(5, objetivo.getDtFim());
-			java.sql.Date dtInclusao = new java.sql.Date(objetivo.getDtInclusao().getTimeInMillis());
-			stmt.setDate(6, dtInclusao);
-			stmt.setInt(7, objetivo.getIdObjetivo());
-			stmt.setInt(8, objetivo.isStatus());
+			stmt.setString(1, objetivo.getDsObjetivo());
+			stmt.setDouble(2, objetivo.getVrObjetivo());
+			stmt.setDate(3, objetivo.getDtInicio());
+			stmt.setDate(4, objetivo.getDtFim());
+			stmt.setInt(5, objetivo.isStatus());
+			stmt.setInt(6, objetivo.getIdObjetivo());
+	
 			stmt.executeUpdate();
 
 		} catch (Exception e) {

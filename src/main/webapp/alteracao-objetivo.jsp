@@ -14,55 +14,57 @@
 	<%@ include file="menu.jsp"%>
 
 	<div class="container-fluid">
-		<%@ include file="tabs.jsp"%>
 		<div class="row justify-content-md-center p-5">
 			<div class="col col-lg-9">
-
 				<div class="container-fluid">
-					<%-- O action produto referencia a Servlet e o metodo no method --%>
+
 					<form action="objetivo" method="post">
 
-						<%-- <input type="hidden" value="cadastrar" name="acao">--%>
-						<input type="hidden" value="cadastrar" name="acao">
+						<input type="hidden" value="editar" name="acao"> <input
+							type="hidden" value="${objetivo.idObjetivo}" name="codigo">
 
 						<div class="form-group">
 							<label for="id-nome-objetivo">Objetivo</label> <input type="text"
-								name="nome-objetivo" id="id-nome-objetivo" class="form-control">
+								name="nome-objetivo" id="id-nome-objetivo" class="form-control"
+								value="${objetivo.dsObjetivo}">
 						</div>
 
 						<div class="form-group">
 							<label for="id-valor">Valor</label> <input type="text"
-								name="valor" id="id-valor" class="form-control">
+								name="valor" id="id-valor" class="form-control"
+								value="${objetivo.vrObjetivo}">
 						</div>
 
 						<div class="form-group">
 							<label for="id-data-inicio">Data inicio</label> <input
-								type="text" name="data-inicio" id="id-data-inicio"
-								class="form-control">
+								type="date" name="data-inicio" id="id-data-inicio"
+								class="form-control" value="${objetivo.dtInicio}"
+								pattern="dd/MM/yyyy">
 						</div>
 
 						<div class="form-group">
-							<label for="id-data-fim">Data fim</label> <input type="text"
-								name="data-fim" id="id-data-fim" class="form-control">
+							<label for="id-data-fim">Data fim</label> <input type="date"
+								name="data-fim" id="id-data-fim" class="form-control"
+								value="${objetivo.dtFim}" pattern="dd/MM/yyyy">
 						</div>
 						<div class="container-fluid d-flex justify-content-end">
-							<div class="btn-group justify-content-end p-3" role="group"
-								aria-label="Basic example">
-								<input type="submit" value="Salvar" class="btn btn-warning">
-							</div>
+
+							<input type="submit" value="Salvar" class="btn btn-warning">
+							<a href="objetivo?acao=listar" class="btn btn-warning">Cancelar</a>
+
 						</div>
 					</form>
 				</div>
 				<c:if test="${not empty msg }">
 					<div class="alert alert-success">${msg}</div>
 				</c:if>
-
 				<c:if test="${not empty erro }">
-					<div class="alert alert-warning">${erro}</div>
+					<div class="alert alert-danger">${erro}</div>
 				</c:if>
+				<%@ include file="footer.jsp"%>
 			</div>
 		</div>
 	</div>
-	<%@ include file="footer.jsp"%>
+
 </body>
 </html>

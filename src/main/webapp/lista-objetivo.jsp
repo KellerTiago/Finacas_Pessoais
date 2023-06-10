@@ -15,6 +15,7 @@
 
 	<!-- Escrever o codigo aqui -->
 	<div class="container-fluid">
+		<%@ include file="tabs.jsp"%>
 		<div class="row justify-content-md-center">
 			<div class="col-lg-10 ">
 				<table class="table">
@@ -34,11 +35,11 @@
 								<th scope="row">${o.idObjetivo}</th>
 								<td>${o.dsObjetivo}</td>
 								<td>${o.vrObjetivo}</td>
-								<td><fmt:formatDate value="${o.dtInicio}" pattern="dd/MM/yyyy"/></td>
+								<td><fmt:formatDate value="${o.dtInicio}" pattern="dd/MM/yyyy" /></td>
 								<td><fmt:formatDate value="${o.dtFim}" pattern="dd/MM/yyyy" /></td>
 								<td><c:url value="objetivo" var="link">
-										<c:param name="acao" value="abrir-form-edicao" />
-										<c:param name="codigo" value="${p.idObjetivo}" />
+										<c:param name="acao" value="abrir-alterar" />
+										<c:param name="codigo" value="${o.idObjetivo}" />
 									</c:url> <a href="${link}">Editar</a></td>
 							</tr>
 						</c:forEach>
