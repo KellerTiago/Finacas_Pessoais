@@ -14,10 +14,23 @@
 	<%@ include file="menu.jsp"%>
 
 	<!-- Escrever o codigo aqui -->
-	<div class="container-fluid">
-		<%@ include file="tabs.jsp"%>
-		<div class="row justify-content-md-center">
-			<div class="col-lg-10 ">
+
+	<div class="row justify-content-md-center p-5">
+		<div class="col-lg-9 ">
+			<div class="container-fluid">
+				<ul class="nav nav-tabs">
+				
+					<li class="nav-item"><a class="nav-link"
+						aria-current="page" href="cadastro-objetivo.jsp">Cadastro de
+							Objetivo</a></li>
+							
+					<li class="nav-item"><a class="nav-link active"
+						href="${pageContext.request.contextPath}/objetivo?acao=listar">Listar
+							Objetivos</a></li>
+							
+				
+
+				</ul>
 				<table class="table">
 					<thead>
 						<tr>
@@ -35,7 +48,8 @@
 								<th scope="row">${o.idObjetivo}</th>
 								<td>${o.dsObjetivo}</td>
 								<td>${o.vrObjetivo}</td>
-								<td><fmt:formatDate value="${o.dtInicio}" pattern="dd/MM/yyyy" /></td>
+								<td><fmt:formatDate value="${o.dtInicio}"
+										pattern="dd/MM/yyyy" /></td>
 								<td><fmt:formatDate value="${o.dtFim}" pattern="dd/MM/yyyy" /></td>
 								<td><c:url value="objetivo" var="link">
 										<c:param name="acao" value="abrir-alterar" />

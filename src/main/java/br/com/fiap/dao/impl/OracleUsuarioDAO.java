@@ -121,7 +121,7 @@ public class OracleUsuarioDAO implements UsuarioDAO {
 	}
 
 	@Override
-	public Usuario read(int idUsuario) {
+	public Usuario read(String dsEmail) {
 
 		Usuario usuario = null;
 		PreparedStatement stmt = null;
@@ -129,15 +129,15 @@ public class OracleUsuarioDAO implements UsuarioDAO {
 
 		try {
 			conexao = ConnectionManager.getInstance().getConnection();
-			stmt = conexao.prepareStatement("SELECT  id_usuario, id_grupo, nm_usuario, ds_email, ds_senha, dt_inclusao, status FROM t_fth_usuario WHERE id_usuario = ?");
-			stmt.setInt(1, idUsuario);
+			stmt = conexao.prepareStatement("SELECT  id_usuario, id_grupo, nm_usuario, ds_email, ds_senha, dt_inclusao, status FROM t_fth_usuario WHERE ds_email = ?");
+			stmt.setString(1, dsEmail);
 			rs = stmt.executeQuery();
 
 			if (rs.next()) {
 				int idusuario = rs.getInt("id_usuario");
 				int idGrupo = rs.getInt("id_grupo");
 				String nmUsuario = rs.getString("nm_usuario");
-				String dsEmail = rs.getString("ds_email");
+				String dsemail = rs.getString("ds_email");
 				String dsSenha = rs.getString("ds_senha");
 				
 				//analisar essa parte
@@ -147,7 +147,7 @@ public class OracleUsuarioDAO implements UsuarioDAO {
 				
 				boolean status = rs.getBoolean("status");
 
-				usuario = new Usuario(idusuario, idGrupo, nmUsuario, dsEmail, dsSenha, dtinclusao, status);
+				usuario = new Usuario(idusuario, idGrupo, nmUsuario, dsemail, dsSenha, dtinclusao, status);
 
 			}
 

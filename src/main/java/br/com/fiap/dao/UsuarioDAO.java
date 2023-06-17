@@ -12,7 +12,7 @@ public interface UsuarioDAO {
 	
 	void delete(int usuario) throws DBException;
 	
-	Usuario read(int id);
+	Usuario read(String dsEmail);
 	
 	List<Usuario> readAll();
 }

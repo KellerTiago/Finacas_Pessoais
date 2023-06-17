@@ -23,13 +23,13 @@
 				src="resources/img/Logo Foto.svg" alt="Logo">
 			<p>Bem vindo(a) ao Financial Project</p>
 		</header>
-		<form>
+		<form action="usuario" method="get">
 			<div class="rounded mx-auto d-block w-50 py-2 px-5">
 				<div class="input-group">
 					<span class="input-group-text opacity-50"> <i
 						class="bi bi-person-circle "></i>
 					</span> <input type="text" class="form-control opacity-50"
-						placeholder="Usuário" required>
+						placeholder="Usuário" required name="dsEmail">
 				</div>
 			</div>
 			<div class="rounded mx-auto d-block w-50 py-2 px-5">
@@ -37,19 +37,28 @@
 					<span class="input-group-text opacity-50"> <i
 						class="bi bi-lock-fill"></i>
 					</span> <input type="password" class="form-control opacity-50"
-						placeholder="Senha" required>
+						placeholder="Senha" required name="dsSenha">
 				</div>
 			</div>
 			<div class="row py-4">
-				<button type="submit"
-					class="btn btn-outline-warning text-white rounded mx-auto d-block w-25">Login</button>
+				<input type="submit"
+					class="btn btn-outline-warning text-white rounded mx-auto d-block w-25"
+					value="Login">
 			</div>
 		</form>
+		<div>
+			<c:if test="${not empty msg }">
+				<div class="alert alert-success">${msg}</div>
+			</c:if>
+
+			<c:if test="${not empty erro }">
+				<div class="alert alert-warning">${erro}</div>
+			</c:if>
+		</div>
 		<footer class="text-center">
 			<a href="cadastro-usuario.jsp" class="link-warning"> Não tem uma
 				conta? Cadastre-se</a>
 		</footer>
-
 	</div>
 	<script src="js/bootstrap.bundle.min.js"></script>
 </body>

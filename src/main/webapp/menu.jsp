@@ -28,7 +28,7 @@
 					class="nav-link dropdown-toggle" href="#" role="button"
 					data-bs-toggle="dropdown" aria-expanded="false">Informações</a>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item nav-link" href="lista-objetivo.jsp">Objetivo</a></li>
+						<li><a class="dropdown-item nav-link" href="${pageContext.request.contextPath}/objetivo?acao=listar">Objetivo</a></li>
 						<li><hr class="dropdown-divider"></li>
 						<li><a class="dropdown-item" href="cadasto-objetivo">Meta</a></li>
 						<li><hr class="dropdown-divider"></li>

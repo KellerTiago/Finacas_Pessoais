@@ -17,7 +17,18 @@
 		<div class="row justify-content-md-center p-5">
 			<div class="col col-lg-9">
 				<div class="container-fluid">
+					<ul class="nav nav-tabs">
+						
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/objetivo?acao=listar">Listar
+								Objetivos</a></li>
 
+						<li class="nav-item"><a class="nav-link" aria-current="page"
+							href="cadastro-objetivo.jsp">Cadastro de Objetivo</a></li>
+							
+						<li class="nav-item"><a class="nav-link active disabled">Editar</a>
+						</li>
+					</ul>
 					<form action="objetivo" method="post">
 
 						<input type="hidden" value="editar" name="acao"> <input
