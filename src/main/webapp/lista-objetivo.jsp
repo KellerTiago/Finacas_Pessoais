@@ -20,14 +20,16 @@
 			<div class="container-fluid">
 				<ul class="nav nav-tabs">
 
-					<li class="nav-item"><a class="nav-link" aria-current="page"
-						href="cadastro-objetivo.jsp">Cadastro de Objetivo</a></li>
-
-					<li class="nav-item"><a class="nav-link active"
+					<li class="nav-item"><a class="nav-link text-warning active"
 						href="${pageContext.request.contextPath}/objetivo?acao=listar">Listar
 							Objetivos</a></li>
-					<li class="nav-item"><a class="nav-link disabled">Editar</a>
-					</li>
+
+					<li class="nav-item"><a class="nav-link text-warning"
+						aria-current="page" href="cadastro-objetivo.jsp">Cadastro de
+							Objetivo</a></li>
+
+
+					<li class="nav-item"><a class="nav-link disabled">Editar</a></li>
 
 
 				</ul>
@@ -54,7 +56,7 @@
 								<td><c:url value="objetivo" var="link">
 										<c:param name="acao" value="abrir-alterar" />
 										<c:param name="codigo" value="${o.idObjetivo}" />
-									</c:url> <a href="${link}">Editar</a></td>
+									</c:url> <a class="text-warning" href="${link}">Editar</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>

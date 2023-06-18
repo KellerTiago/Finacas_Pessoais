@@ -19,11 +19,11 @@
 				<div class="container-fluid">
 					<ul class="nav nav-tabs">
 						
-						<li class="nav-item"><a class="nav-link"
+						<li class="nav-item"><a class="nav-link text-warning"
 							href="${pageContext.request.contextPath}/objetivo?acao=listar">Listar
 								Objetivos</a></li>
 
-						<li class="nav-item"><a class="nav-link" aria-current="page"
+						<li class="nav-item"><a class="nav-link text-warning" aria-current="page"
 							href="cadastro-objetivo.jsp">Cadastro de Objetivo</a></li>
 							
 						<li class="nav-item"><a class="nav-link active disabled">Editar</a>
@@ -58,7 +58,7 @@
 								name="data-fim" id="id-data-fim" class="form-control"
 								value="${objetivo.dtFim}" pattern="dd/MM/yyyy">
 						</div>
-						<div class="container-fluid d-flex justify-content-end">
+						<div class="d-grid gap-2 d-md-flex justify-content-md-end p-3">
 
 							<input type="submit" value="Salvar" class="btn btn-warning">
 							<a href="objetivo?acao=listar" class="btn btn-warning">Cancelar</a>
@@ -72,6 +72,7 @@
 				<c:if test="${not empty erro }">
 					<div class="alert alert-danger">${erro}</div>
 				</c:if>
+				<%@include file="alerts.jsp" %>
 				<%@ include file="footer.jsp"%>
 			</div>
 		</div>

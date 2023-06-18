@@ -22,7 +22,7 @@ public class Teste {
 			
 			Usuario usuario = new Usuario();
 			
-			usuario = dao.read("kellertiago@hotmail.com");
+			usuario = dao.read("keller@hotmail.com");
 			
 			 if (usuario != null) {
 		            System.out.println("Usuário encontrado:");

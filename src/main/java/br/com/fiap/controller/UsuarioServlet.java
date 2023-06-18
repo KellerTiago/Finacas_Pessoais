@@ -73,12 +73,13 @@ public class UsuarioServlet extends HttpServlet {
 
 			} else {
 				request.setAttribute("erro", "Verifique usuario e senha !");
+				request.getRequestDispatcher("login-usuario.jsp").forward(request, response);
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
 
 		}
-		request.getRequestDispatcher("login-usuario.jsp").forward(request, response);
+		
 	}
 }

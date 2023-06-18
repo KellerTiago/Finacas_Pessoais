@@ -1,8 +1,6 @@
 package br.com.fiap.bean;
 import java.util.Calendar;
 
-import br.com.fiap.util.CriptografiaUtils;
-
 public class Usuario {
 
 	private int idUsuario;
@@ -23,7 +21,7 @@ public class Usuario {
 		this.usuarioGrupo = usuarioGrupo;
 		this.nmUsuario = nmUsuario;
 		this.email = email;
-		setSenha(senha);
+		this.senha = senha;
 		this.dtInclusao = dtInclusao;
 		this.status = status;
 	}
@@ -65,15 +63,7 @@ public class Usuario {
 	}
 
 	public void setSenha(String senha) {
-		try {
-			
-			this.senha = CriptografiaUtils.criptografar(senha);
-			
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-		}
-		
+		this.senha = senha;
 	}
 
 	public Calendar getDtInclusao() {

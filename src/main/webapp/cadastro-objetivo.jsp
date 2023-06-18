@@ -23,12 +23,14 @@
 					<%-- O action produto referencia a Servlet e o metodo no method --%>
 					<ul class="nav nav-tabs">
 
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="cadastro-objetivo.jsp">Cadastro de
-								Objetivo</a></li>
-						<li class="nav-item"><a class="nav-link"
+						<li class="nav-item"><a class="nav-link text-warning"
 							href="${pageContext.request.contextPath}/objetivo?acao=listar">Listar
 								Objetivos</a></li>
+
+						<li class="nav-item"><a class="nav-link text-warning active"
+							aria-current="page" href="cadastro-objetivo.jsp">Cadastro de
+								Objetivo</a></li>
+
 						<li class="nav-item"><a class="nav-link disabled">Editar</a>
 						</li>
 
@@ -59,24 +61,28 @@
 							<label for="id-data-fim">Data fim</label> <input type="text"
 								name="data-fim" id="id-data-fim" class="form-control">
 						</div>
-						<div class="container-fluid d-flex justify-content-end">
-							<div class="btn-group justify-content-end p-3" role="group"
-								aria-label="Basic example">
-								<input type="submit" value="Salvar" class="btn btn-warning">
-							</div>
+
+						<div class="d-grid gap-2 d-md-flex justify-content-md-end p-3">
+							<input type="submit" value="Salvar" class="btn btn-warning">
 						</div>
+
 					</form>
 				</div>
 				<c:if test="${not empty msg }">
-					<div class="alert alert-success">${msg}</div>
+					<div
+						class="border border-warning alert alert-dismissible fade show  alert-outline-warning text-black text-center rounded mx-auto d-block w-50"
+						role="alert">${msg}</div>
 				</c:if>
 
 				<c:if test="${not empty erro }">
-					<div class="alert alert-warning">${erro}</div>
+					<div
+						class="border border-warning alert alert-dismissible fade show  alert-outline-warning text-black text-center rounded mx-auto d-block w-50"
+						role="alert">${erro}</div>
 				</c:if>
 			</div>
 		</div>
 	</div>
+	<%@include file="alerts.jsp"%>
 	<%@ include file="footer.jsp"%>
 </body>
 </html>
