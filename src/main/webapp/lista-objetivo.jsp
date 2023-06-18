@@ -19,16 +19,16 @@
 		<div class="col-lg-9 ">
 			<div class="container-fluid">
 				<ul class="nav nav-tabs">
-				
-					<li class="nav-item"><a class="nav-link"
-						aria-current="page" href="cadastro-objetivo.jsp">Cadastro de
-							Objetivo</a></li>
-							
+
+					<li class="nav-item"><a class="nav-link" aria-current="page"
+						href="cadastro-objetivo.jsp">Cadastro de Objetivo</a></li>
+
 					<li class="nav-item"><a class="nav-link active"
 						href="${pageContext.request.contextPath}/objetivo?acao=listar">Listar
 							Objetivos</a></li>
-							
-				
+					<li class="nav-item"><a class="nav-link disabled">Editar</a>
+					</li>
+
 
 				</ul>
 				<table class="table">

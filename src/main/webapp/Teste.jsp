@@ -6,14 +6,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Principal</title>
-	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-	<%@ include file="header.jsp"%>
+<title>Principal</title>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<%@ include file="header.jsp"%>
 </head>
-const alert = bootstrap.Alert.getOrCreateInstance('#myAlert')
-alert.close()
-  
-	
-	<%@ include file="footer.jsp" %>
+<body>
+    <!-- Conteúdo da página JSP -->
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+        Exemplo de alerta do Bootstrap
+   
+    </div>
+
+
+	<%@ include file="footer.jsp"%>
 </body>
 </html>

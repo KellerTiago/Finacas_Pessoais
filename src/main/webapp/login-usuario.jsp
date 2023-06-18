@@ -46,20 +46,23 @@
 					value="Login">
 			</div>
 		</form>
-		<div>
-			<c:if test="${not empty msg }">
-				<div class="alert alert-success">${msg}</div>
-			</c:if>
+		<c:if test="${not empty msg }">
+			<div
+				class="border border-warning alert alert-dismissible fade show  alert-outline-warning text-white text-center rounded mx-auto d-block w-50"
+				role="alert">${msg}</div>
+		</c:if>
+		<c:if test="${not empty erro }">
+			<div
+				class="border border-warning alert alert-dismissible fade show  alert-outline-warning text-white text-center rounded mx-auto d-block w-50"
+				role="alert">${erro}</div>
+		</c:if>
 
-			<c:if test="${not empty erro }">
-				<div class="alert alert-warning">${erro}</div>
-			</c:if>
-		</div>
 		<footer class="text-center">
 			<a href="cadastro-usuario.jsp" class="link-warning"> Não tem uma
 				conta? Cadastre-se</a>
 		</footer>
 	</div>
+	<%@include file="alerts.jsp"%>
 	<script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

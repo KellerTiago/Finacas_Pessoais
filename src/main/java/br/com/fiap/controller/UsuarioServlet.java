@@ -45,6 +45,7 @@ public class UsuarioServlet extends HttpServlet {
 				Usuario usuario = new Usuario(0, idGrupo, nmUsuario, dsEmail, dsSenha, dtInclusao, status);
 				dao.create(usuario);
 				request.setAttribute("msg", "Usuario " + nmUsuario + " cadastrado com sucesso !");
+				request.getRequestDispatcher("login-usuario.jsp").forward(request, response);
 			} else {
 				request.setAttribute("msg", "As senhas devem ser iguais !");
 			}
@@ -56,28 +57,28 @@ public class UsuarioServlet extends HttpServlet {
 			e.printStackTrace();
 			request.setAttribute("erro", "Por favor, valide os dados");
 		}
-
-		request.getRequestDispatcher("login-usuario.jsp").forward(request, response);
+		request.getRequestDispatcher("cadastro-usuario.jsp").forward(request, response);
 	}
-	
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		try {
-				String dsEmail = request.getParameter("dsEmail");
-				String dsSenha = request.getParameter("dsSenha");
-				
-				if(dao.read(dsEmail).getSenha().equals(CriptografiaUtils.criptografar(dsSenha))) {
-					request.setAttribute("msg", "Bem vindo !");
-				} else {
-					request.setAttribute("erro", "Verifique usuario e senha !");
-				}
-			
+			String dsEmail = request.getParameter("dsEmail");
+			String dsSenha = request.getParameter("dsSenha");
+
+			if (dao.read(dsEmail).getSenha().equals(CriptografiaUtils.criptografar(dsSenha))) {
+
+				request.getRequestDispatcher("cadastro-objetivo.jsp").forward(request, response);
+
+			} else {
+				request.setAttribute("erro", "Verifique usuario e senha !");
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
-			
+
 		}
-		request.getRequestDispatcher("cadastro-objetivo.jsp").forward(request, response);
+		request.getRequestDispatcher("login-usuario.jsp").forward(request, response);
 	}
 }
-

@@ -14,25 +14,26 @@
 	<%@ include file="menu.jsp"%>
 
 	<div class="container-fluid">
-		
+
 		<div class="row justify-content-md-center p-5">
-		
+
 			<div class="col col-lg-9">
 
 				<div class="container-fluid">
 					<%-- O action produto referencia a Servlet e o metodo no method --%>
-						<ul class="nav nav-tabs">
-				
-				    <li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="cadastro-objetivo.jsp">Cadastro de
-							Objetivo</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="${pageContext.request.contextPath}/objetivo?acao=listar">Listar
-							Objetivos</a></li>
-							
-					
+					<ul class="nav nav-tabs">
 
-				</ul>
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="cadastro-objetivo.jsp">Cadastro de
+								Objetivo</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/objetivo?acao=listar">Listar
+								Objetivos</a></li>
+						<li class="nav-item"><a class="nav-link disabled">Editar</a>
+						</li>
+
+
+					</ul>
 					<form action="objetivo" method="post">
 
 						<%-- <input type="hidden" value="cadastrar" name="acao">--%>
