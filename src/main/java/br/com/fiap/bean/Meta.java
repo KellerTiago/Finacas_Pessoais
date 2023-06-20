@@ -5,9 +5,9 @@ import java.sql.Date;
 public class Meta {
 
 	private int idMeta;
-	private Objetivo objetivo = new Objetivo();
-	private CategoriaLancamento categoria = new CategoriaLancamento();
-	private Recorrencia recorrencia = new Recorrencia();
+	private int idObjetivo = new Objetivo().getIdObjetivo();
+	private int idCategoria = new CategoriaLancamento().getIdCategoria();
+	private int idRecorrencia = new Recorrencia().getIdRecorrencia();
 	private String dsMeta;
 	private Double vrMeta;
 	private Date dtInclusao;
@@ -16,13 +16,13 @@ public class Meta {
 	public Meta() {
 	}
 
-	public Meta(int idMeta, Objetivo objetivo, CategoriaLancamento categoria, Recorrencia recorrencia, String dsMeta,
+	public Meta(int idMeta, int idObjetivo, int idCategoria, int idRecorrencia, String dsMeta,
 			Double vrMeta, Date dtInclusao, boolean status) {
 		super();
 		this.idMeta = idMeta;
-		this.objetivo = objetivo;
-		this.categoria = categoria;
-		this.recorrencia = recorrencia;
+		this.idObjetivo = idObjetivo;
+		this.idCategoria = idCategoria;
+		this.idRecorrencia = idRecorrencia;
 		this.dsMeta = dsMeta;
 		this.vrMeta = vrMeta;
 		this.dtInclusao = dtInclusao;
@@ -37,28 +37,30 @@ public class Meta {
 		this.idMeta = idMeta;
 	}
 
-	public Objetivo getObjetivo() {
-		return objetivo;
+	
+	
+	public int getIdObjetivo() {
+		return idObjetivo;
 	}
 
-	public void setObjetivo(Objetivo objetivo) {
-		this.objetivo = objetivo;
+	public void setIdObjetivo(int idObjetivo) {
+		this.idObjetivo = idObjetivo;
 	}
 
-	public CategoriaLancamento getCategoria() {
-		return categoria;
+	public int getIdCategoria() {
+		return idCategoria;
 	}
 
-	public void setCategoria(CategoriaLancamento categoria) {
-		this.categoria = categoria;
+	public void setIdCategoria(int idCategoria) {
+		this.idCategoria = idCategoria;
 	}
 
-	public Recorrencia getRecorrencia() {
-		return recorrencia;
+	public int getIdRecorrencia() {
+		return idRecorrencia;
 	}
 
-	public void setRecorrencia(Recorrencia recorrencia) {
-		this.recorrencia = recorrencia;
+	public void setIdRecorrencia(int idRecorrencia) {
+		this.idRecorrencia = idRecorrencia;
 	}
 
 	public String getDsMeta() {

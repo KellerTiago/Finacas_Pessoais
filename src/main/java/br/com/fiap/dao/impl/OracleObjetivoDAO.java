@@ -33,7 +33,7 @@ public class OracleObjetivoDAO implements ObjetivoDAO {
 
 			stmt = conexao.prepareStatement(sql);
 
-			stmt.setInt(1, 1); //instancia de grupo padrão
+			stmt.setInt(1, 1); //instancia de grupo padrão arrumar
 			stmt.setString(2, objetivo.getDsObjetivo());
 			stmt.setDouble(3, objetivo.getVrObjetivo());
 			stmt.setDate(4, objetivo.getDtInicio());

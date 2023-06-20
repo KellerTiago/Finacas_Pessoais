@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Cadastro de Objetivo</title>
+<title>Cadastro de Meta</title>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
 <%@ include file="header.jsp"%>
 </head>
@@ -24,22 +24,29 @@
 					<ul class="nav nav-tabs">
 
 						<li class="nav-item"><a class="nav-link text-warning"
-							href="${pageContext.request.contextPath}/objetivo?acao=listar">Listar
-								Objetivos</a></li>
+							href="${pageContext.request.contextPath}/meta?acao=listar">Listar
+								Metas</a></li>
 
 						<li class="nav-item"><a class="nav-link text-warning active"
-							aria-current="page" href="cadastro-objetivo.jsp">Cadastro de
-								Objetivo</a></li>
+							aria-current="page" href="cadastro-meta.jsp">Cadastro de Meta</a></li>
 
 						<li class="nav-item"><a class="nav-link disabled">Editar</a>
 						</li>
 
 
 					</ul>
-					<form action="objetivo" method="post">
+					<form action="meta" method="post">
 
 						<%-- <input type="hidden" value="cadastrar" name="acao">--%>
-						<input type="hidden" value="cadastrar" name="acao">
+						<input type="hidden" value="cadastrar" name="acao"> 
+						
+						<select
+							class="form-select" aria-label="Default select example">
+							<option selected>Objetivo</option>
+							<option value="1">One</option>
+							<option value="2">Two</option>
+							<option value="3">Three</option>
+						</select>
 
 						<div class="form-group">
 							<label for="id-nome-objetivo">Objetivo</label> <input type="text"
@@ -47,19 +54,18 @@
 						</div>
 
 						<div class="form-group">
-							<label for="id-valor">Valor</label> <input type="text"
-								name="valor" id="id-valor" class="form-control">
+							<label for="id-valor">Meta</label> <input type="text" name="meta"
+								id="id-meta" class="form-control">
 						</div>
 
 						<div class="form-group">
-							<label for="id-data-inicio">Data inicio</label> <input
-								type="text" name="data-inicio" id="id-data-inicio"
-								class="form-control">
+							<label for="id-valor">Categoria</label> <input type="text"
+								name="categoria" id="id-categoria" class="form-control">
 						</div>
 
 						<div class="form-group">
-							<label for="id-data-fim">Data fim</label> <input type="text"
-								name="data-fim" id="id-data-fim" class="form-control">
+							<label for="id-valor">Recorrencia</label> <input type="text"
+								name="recorrencia" id="id-recorrencia" class="form-control">
 						</div>
 
 						<div class="d-grid gap-2 d-md-flex justify-content-md-end p-3">
