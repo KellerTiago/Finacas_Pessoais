@@ -46,9 +46,31 @@ public class ObjetivoServlet extends HttpServlet {
 		case "editar":
 			editar(request,response);
 			break;
+		
+		case "excluir":
+			excluir(request,response);
+		
 		}
 		
+		
 	}
+
+
+	private void excluir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		int idObjetivo = Integer.parseInt(request.getParameter("codigo"));
+		
+		try {
+			dao.delete(idObjetivo);
+			request.setAttribute("msg", "Objetivo Excluido!");
+			
+		} catch (DBException e) {
+			e.printStackTrace();
+			request.setAttribute("erro", "Erro ao excluir!");
+		}
+		listar(request, response);	
+	}
+
 
 
 	private void cadastrar(HttpServletRequest request, HttpServletResponse response)

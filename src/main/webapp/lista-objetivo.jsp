@@ -56,7 +56,11 @@
 								<td><c:url value="objetivo" var="link">
 										<c:param name="acao" value="abrir-alterar" />
 										<c:param name="codigo" value="${o.idObjetivo}" />
-									</c:url> <a class="text-warning" href="${link}">Editar</a></td>
+									</c:url> <a class="btn btn-outline-warning btn-xs" href="${link}">Editar</a>
+									
+									<button type="button" class="btn btn-outline-warning"
+										data-bs-toggle="modal" data-bs-target="#ExcluirModal"
+										onclick="codigoExcluir.value = ${o.idObjetivo}">Excluir</button>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -64,6 +68,34 @@
 			</div>
 		</div>
 	</div>
+
 	<%@ include file="footer.jsp"%>
+
+	<!-- Modal -->
+	<div class="modal fade" id="ExcluirModal" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Confirmação</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div class="modal-body">Deseja realmente excluir o objetivo?</div>
+				<div class="modal-footer">
+
+					<form action="objetivo" method="post">
+						<input type="hidden" name="acao" value="excluir"> 
+						<input type="hidden" name="codigo" id="codigoExcluir">
+						<button type="button" class="btn btn-outline-warning"
+							data-bs-dismiss="modal">Cancelar</button>
+						<button type="submit" class="btn btn-outline-warning">Excluir</button>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
 </body>
 </html>
