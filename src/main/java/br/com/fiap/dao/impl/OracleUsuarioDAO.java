@@ -34,8 +34,8 @@ public class OracleUsuarioDAO implements UsuarioDAO {
 			
 			stmt.setInt(1, usuario.getUsuarioGrupo());
 			stmt.setString(2, usuario.getNmUsuario());
-			stmt.setString(3, CriptografiaUtils.criptografar(usuario.getEmail()));
-			stmt.setString(4, usuario.getSenha());
+			stmt.setString(3, usuario.getEmail());
+			stmt.setString(4, CriptografiaUtils.criptografar(usuario.getSenha()));
 			java.sql.Date dtInclusao = new java.sql.Date(usuario.getDtInclusao().getTimeInMillis());
 			stmt.setDate(5, dtInclusao);
 			stmt.setBoolean(6, usuario.isStatus());

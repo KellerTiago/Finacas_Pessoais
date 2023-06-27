@@ -76,9 +76,14 @@ public class UsuarioServlet extends HttpServlet {
 				request.getRequestDispatcher("login-usuario.jsp").forward(request, response);
 			}
 
+		} catch (DBException db) {
+			db.printStackTrace();
+			request.setAttribute("erro", "Usuario não encontrado");
+			request.getRequestDispatcher("login-usuario.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
-
+			request.setAttribute("erro", "Usuario ou senha incorretos");
+			request.getRequestDispatcher("login-usuario.jsp").forward(request, response);
 		}
 		
 	}
