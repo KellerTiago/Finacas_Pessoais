@@ -1,6 +1,6 @@
 package br.com.fiap.bean;
 
-import java.sql.Date;
+import java.util.Calendar;
 
 public class Meta {
 
@@ -10,14 +10,14 @@ public class Meta {
 	private int idRecorrencia = new Recorrencia().getIdRecorrencia();
 	private String dsMeta;
 	private Double vrMeta;
-	private Date dtInclusao;
-	private boolean status;
+	private Calendar dtInclusao;
+	private int status;
 
 	public Meta() {
 	}
 
-	public Meta(int idMeta, int idObjetivo, int idCategoria, int idRecorrencia, String dsMeta,
-			Double vrMeta, Date dtInclusao, boolean status) {
+	public Meta(int idMeta, int idObjetivo, int idCategoria, int idRecorrencia, String dsMeta, Double vrMeta,
+			Calendar dtInclusao, int status) {
 		super();
 		this.idMeta = idMeta;
 		this.idObjetivo = idObjetivo;
@@ -37,8 +37,6 @@ public class Meta {
 		this.idMeta = idMeta;
 	}
 
-	
-	
 	public int getIdObjetivo() {
 		return idObjetivo;
 	}
@@ -79,21 +77,20 @@ public class Meta {
 		this.vrMeta = vrMeta;
 	}
 
-	public Date getDtInclusao() {
+	public Calendar getDtInclusao() {
 		return dtInclusao;
 	}
 
-	public void setDtInclusao(Date dtInclusao) {
+	public void setDtInclusao(Calendar dtInclusao) {
 		this.dtInclusao = dtInclusao;
 	}
 
-	public boolean isStatus() {
+	public int isStatus() {
 		return status;
 	}
 
-	public void setStatus(boolean status) {
+	public void setStatus(int status) {
 		this.status = status;
 	}
-
 
 }

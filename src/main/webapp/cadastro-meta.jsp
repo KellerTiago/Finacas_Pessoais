@@ -38,19 +38,17 @@
 					<form action="meta" method="post">
 
 						<%-- <input type="hidden" value="cadastrar" name="acao">--%>
-						<input type="hidden" value="cadastrar" name="acao"> 
-						
-						<select
-							class="form-select" aria-label="Default select example">
-							<option selected>Objetivo</option>
-							<option value="1">One</option>
-							<option value="2">Two</option>
-							<option value="3">Three</option>
-						</select>
+						<input type="hidden" value="cadastrar" name="acao">
 
 						<div class="form-group">
-							<label for="id-nome-objetivo">Objetivo</label> <input type="text"
-								name="nome-objetivo" id="id-nome-objetivo" class="form-control">
+							<label for="id-objetivo">Objetivo</label> <select
+								class="form-select text-body-tertiary" name="nome-objetivo"
+								id="id-nome-objetivo">
+								<option selected>Selecione uma opção</option>
+								<c:forEach items="${objetivos}" var="c">
+									<option value="${c.idObjetivo}">${c.dsObjetivo}</option>
+								</c:forEach>
+							</select>
 						</div>
 
 						<div class="form-group">

@@ -30,7 +30,7 @@
 					<ul class="dropdown-menu">
 						<li><a class="dropdown-item nav-link" href="${pageContext.request.contextPath}/objetivo?acao=listar">Objetivo</a></li>
 						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="cadasto-objetivo">Meta</a></li>
+						<li><a class="dropdown-item" href="cadastro-meta.jsp">Meta</a></li>
 						<li><hr class="dropdown-divider"></li>
 						<li><a class="dropdown-item" href="#">Categoria
 								Lançamento</a></li>
