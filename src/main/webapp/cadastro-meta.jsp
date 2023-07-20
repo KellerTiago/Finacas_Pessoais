@@ -33,7 +33,6 @@
 						<li class="nav-item"><a class="nav-link disabled">Editar</a>
 						</li>
 
-
 					</ul>
 					<form action="meta" method="post">
 
@@ -41,9 +40,8 @@
 						<input type="hidden" value="cadastrar" name="acao">
 
 						<div class="form-group">
-							<label for="id-objetivo">Objetivo</label> <select
-								class="form-select text-body-tertiary" name="nome-objetivo"
-								id="id-nome-objetivo">
+							<label for="id-objetivo">Objetivo</label>
+							 <select name="nome-objetivo" id="id-nome-objetivo" class="form-select text-body-tertiary">
 								<option selected>Selecione uma opção</option>
 								<c:forEach items="${objetivos}" var="c">
 									<option value="${c.idObjetivo}">${c.dsObjetivo}</option>
@@ -60,10 +58,20 @@
 							<label for="id-valor">Categoria</label> <input type="text"
 								name="categoria" id="id-categoria" class="form-control">
 						</div>
-
+						
 						<div class="form-group">
-							<label for="id-valor">Recorrencia</label> <input type="text"
-								name="recorrencia" id="id-recorrencia" class="form-control">
+							<label for="id-valor">Valor Alvo</label> <input type="text"
+								name="valor-meta" id="id-valor-meta" class="form-control">
+						</div>
+						
+						<div class="form-group">
+							<label for="id-valor">Data Inicio</label> <input type="text"
+								name="data-inicio" id="id-valor-meta" class="form-control">
+						</div>
+						
+						<div class="form-group">
+							<label for="id-valor">Data Fim</label> <input type="text"
+								name="data-fim" id="id-valor-meta" class="form-control">
 						</div>
 
 						<div class="d-grid gap-2 d-md-flex justify-content-md-end p-3">
