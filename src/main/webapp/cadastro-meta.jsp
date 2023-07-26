@@ -20,7 +20,7 @@
 			<div class="col col-lg-9">
 
 				<div class="container-fluid">
-					<%-- O action produto referencia a Servlet e o metodo no method --%>
+
 					<ul class="nav nav-tabs">
 
 						<li class="nav-item"><a class="nav-link text-warning"
@@ -28,7 +28,7 @@
 								Metas</a></li>
 
 						<li class="nav-item"><a class="nav-link text-warning active"
-							aria-current="page" href="cadastro-meta.jsp">Cadastro de Meta</a></li>
+							aria-current="page" href="${pageContext.request.contextPath}/meta?acao=abrirFormMeta">Cadastro de Meta</a></li>
 
 						<li class="nav-item"><a class="nav-link disabled">Editar</a>
 						</li>
@@ -50,13 +50,13 @@
 						</div>
 
 						<div class="form-group">
-							<label for="id-valor">Meta</label> <input type="text" name="meta"
+							<label for="id-valor">Meta</label> <input type="text" name="nome-meta"
 								id="id-meta" class="form-control">
 						</div>
 
 						<div class="form-group">
 							<label for="id-valor">Categoria</label> <input type="text"
-								name="categoria" id="id-categoria" class="form-control">
+								name="nome-categoria" id="id-categoria" class="form-control">
 						</div>
 						
 						<div class="form-group">

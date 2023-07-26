@@ -1,6 +1,7 @@
 package br.com.fiap.bean;
 
 import java.sql.Date;
+import java.util.Calendar;
 
 public class Recorrencia {
 
@@ -8,14 +9,17 @@ public class Recorrencia {
 	private Date dtInicio;
 	private Date dtFim;
 	private double vrRecorrencia;
-	private Date dtAltercao;
-	private boolean status;
+	private Calendar dtAltercao;
+	private int status;
 
 	public Recorrencia() {
 	}
 
-	public Recorrencia(int idRecorrencia, Date dtInicio, Date dtFim, double vrRecorrencia, Date dtAltercao,
-			boolean status) {
+
+
+	public Recorrencia(int idRecorrencia, Date dtInicio, Date dtFim, double vrRecorrencia, Calendar dtAltercao,
+			int status) {
+		super();
 		this.idRecorrencia = idRecorrencia;
 		this.dtInicio = dtInicio;
 		this.dtFim = dtFim;
@@ -23,6 +27,8 @@ public class Recorrencia {
 		this.dtAltercao = dtAltercao;
 		this.status = status;
 	}
+
+
 
 	public int getIdRecorrencia() {
 		return idRecorrencia;
@@ -56,19 +62,19 @@ public class Recorrencia {
 		this.vrRecorrencia = vrRecorrencia;
 	}
 
-	public Date getDtAltercao() {
+	public Calendar getDtAltercao() {
 		return dtAltercao;
 	}
 
-	public void setDtAltercao(Date dtAltercao) {
+	public void setDtAltercao(Calendar dtAltercao) {
 		this.dtAltercao = dtAltercao;
 	}
 
-	public boolean isStatus() {
+	public int isStatus() {
 		return status;
 	}
 
-	public void setStatus(boolean status) {
+	public void setStatus(int status) {
 		this.status = status;
 	}
 

@@ -15,28 +15,31 @@ import br.com.fiap.bean.Objetivo;
 import br.com.fiap.bean.Recorrencia;
 import br.com.fiap.dao.MetaDAO;
 import br.com.fiap.dao.ObjetivoDAO;
+import br.com.fiap.dao.RecorrenciaDAO;
 import br.com.fiap.exception.DBException;
 import br.com.fiap.factory.DAOFactory;
 
-@WebServlet("/Meta")
+@WebServlet("/meta")
 public class MetaServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
 	private MetaDAO metaDao;
 	private ObjetivoDAO objetivoDAO;
-	//private RecorrenciaDAO recorrenciaDAO; criar ela aqui
+	private RecorrenciaDAO recorrenciaDAO;
 
 	@Override
 	public void init() throws ServletException {
 		super.init();
 		metaDao = DAOFactory.getMetaDAO();
 		objetivoDAO = DAOFactory.getObjetivoDAO();
+		recorrenciaDAO = DAOFactory.getRecorreciaDAO();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String acao = request.getParameter("abrirFormMeta");
+		String acao = request.getParameter("acao");
+		;
 
 		switch (acao) {
 		case "abrirFormMeta":
@@ -47,10 +50,10 @@ public class MetaServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		String acao = request.getParameter("abrirFormMeta");
-		
-		switch (acao) {			
+
+		String acao = request.getParameter("acao");
+
+		switch (acao) {
 		case "cadastrar":
 			cadastrarMeta(request, response);
 			break;
@@ -65,36 +68,40 @@ public class MetaServlet extends HttpServlet {
 		request.setAttribute("objetivos", lista);
 		request.getRequestDispatcher("cadastro-meta.jsp").forward(request, response);
 	}
-	
-	private void cadastrarMeta(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
-		
+
+	private void cadastrarMeta(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		try {
-			
-			//Cadastro da recorrencia
+
+			// Cadastro da recorrencia
 			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 			java.util.Date dtInicio = format.parse(request.getParameter("data-inicio"));
 			java.util.Date dtFim = format.parse(request.getParameter("data-fim"));
-			double vrRecorrencia = Double.parseDouble("valor-meta");
-			Recorrencia recorrencia = new Recorrencia();
-			//recorrenciaDAO.create(recorrencia);
+			double vrRecorrencia = Double.parseDouble(request.getParameter("valor-meta"));
+			Recorrencia recorrencia = new Recorrencia(0, new java.sql.Date(dtInicio.getTime()), new java.sql.Date(dtFim.getTime()), vrRecorrencia, null, 1);
+			recorrenciaDAO.create(recorrencia);
 			
-			
-			//Cadastro da meta
-			 int idObjetivo = Integer.parseInt(request.getParameter("nome-objetivo"));
-			 int idCategoria = Integer.parseInt(request.getParameter("nome-categoria"));
-			 String dsMeta = request.getParameter("meta");
-			 double vrMeta = Double.parseDouble("valor-meta");
-			 int idRecorrencia = Integer.parseInt(request.getParameter("Colocar a recorrencia"));
-			 Meta meta = new Meta(0,idObjetivo,idCategoria,idRecorrencia,dsMeta,vrMeta,null,1);
-			 
-			 metaDao.create(meta);
-			 
+			// Cadastro da meta
+			int idObjetivo = Integer.parseInt(request.getParameter("nome-objetivo"));
+			int idCategoria = Integer.parseInt(request.getParameter("nome-categoria"));
+			String dsMeta = request.getParameter("nome-meta");
+			double vrMeta = Double.parseDouble(request.getParameter("valor-meta"));
+			int idRecorrencia = 2; // arrumar essa parte
+			Meta meta = new Meta(0, idObjetivo, idCategoria, idRecorrencia, dsMeta, vrMeta, null, 1);
 
-			
-		} catch (Exception db) {
+			metaDao.create(meta);
+
+
+		} catch (DBException db) {
 			db.printStackTrace();
+			request.setAttribute("erro", "Erro ao tentar cadastrar de meta");
+		} catch (Exception e) {
+			e.printStackTrace();
+			request.setAttribute("erro", "Por favor, valide os dados");
 		}
 		
+		request.getRequestDispatcher("cadastro-meta.jsp").forward(request, response);
 	}
 
 }
